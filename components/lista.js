@@ -184,8 +184,8 @@ export default function Lista(props){
     return(
         
         <div className={styles.main}>
-            {props.pagina_attiva == "Personaggi" ?  <form className={styles.search_container}>
-                <input type="text" placeholder="Nome del personaggio" onChange={handleNome} placeholder="Cerca personaggio" />
+            {props.active_page == "Personaggi" ?  <form className={styles.search_container}>
+                <input type="text" placeholder="Nome del personaggio" onChange={handleNome} />
                 {/* STATO DEL PERSONAGGIO */}
                 <select onChange={handleStatus}>
                     <option value="">Stato del personaggio</option>
@@ -212,7 +212,7 @@ export default function Lista(props){
 
            
          
-            {props.pagina_attiva == "Personaggi" ? 
+            {props.active_page == "Personaggi" ? 
 
            
             <ul className={styles.paging_n}>
@@ -286,7 +286,7 @@ export default function Lista(props){
             
      
         
-        {props.pagina_attiva == "Personaggi" ? StampaPersonaggi(personaggi, props, ShowCharacterInfos, handlePreferiti) : StampaPreferiti(preferiti_info,props, ShowCharacterInfos, handlePreferiti)}
+        {props.active_page == "Personaggi" ? StampaPersonaggi(personaggi, props, ShowCharacterInfos, handlePreferiti) : StampaPreferiti(preferiti_info,props, ShowCharacterInfos, handlePreferiti)}
         
 
       
@@ -395,7 +395,7 @@ return(
                         <div key={index} className={styles.single_character}>
                         <div className={styles.header_character}><img onClick={ () => ShowCharacterInfos(item.id)} src={item.image} /></div>
                         <div className={styles.content_character}><p onClick={ () => ShowCharacterInfos(item.id)} className={styles.name_character}>{item.name}</p></div>
-                        <button onClick={/*props.setPreferiti(item.id)*/ () => handlePreferiti(item)} className={`   ${styles.button_preferito}  ${props.preferiti.includes(item.id) ? styles.btn_pref_active : null }   `}><img src="preferiti.png" alt="prefer"/></button>
+                        <button onClick={() => handlePreferiti(item)} className={`   ${styles.button_preferito}  ${props.preferiti.includes(item.id) ? styles.btn_pref_active : null }   `}><img src="preferiti.png" alt="prefer"/></button>
                     </div>
                        </>
                    )

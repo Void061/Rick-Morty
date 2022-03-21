@@ -36,11 +36,11 @@ export default function Nav(props){
             <hr className={styles.divider} />
            <ul className={styles.items_nav}>
 
-               <div onClick={() => props.setPagina("Personaggi")} className={`   ${styles.container_item}  ${props.pagina_attiva == "Personaggi" ?  styles.active : null}   `}>
+               <div onClick={() => props.setPage("Personaggi")} className={`   ${styles.container_item}  ${props.pagina_attiva == "Personaggi" ?  styles.active : null}   `}>
                 <li><img className={styles.icons} src="personaggi.png" alt="dashboard" />Personaggi</li>
                 </div>
 
-                <div onClick={() => props.setPagina("Preferiti")} className={`   ${styles.container_item}  ${props.pagina_attiva == "Preferiti" ? styles.active : null}   `}>
+                <div onClick={() => props.setPage("Preferiti")} className={`   ${styles.container_item}  ${props.pagina_attiva == "Preferiti" ? styles.active : null}   `}>
                 <li><img className={styles.icons} src="preferiti.png" alt="preferiti" />Preferiti</li>
                 </div>
            </ul>

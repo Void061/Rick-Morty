@@ -239,7 +239,7 @@ export default function Lista(props){
 
                         if(count == 1 && start_page - 4 > -1){
                             return(
-                                <li className={current_page == item ? styles.current_index : null} onClick={() => setBackIndex(item)}>{item}</li>
+                                <li key={index} className={current_page == item ? styles.current_index : null} onClick={() => setBackIndex(item)}>{item}</li>
                             )
                         }
 
@@ -247,13 +247,13 @@ export default function Lista(props){
                        
                             if(count == 5 && item <= n_pagine -4 ){
                                 return(
-                                    <li className={current_page == item ? styles.current_index : null} onClick={() => setNextIndex(item)}>{item}</li>
+                                    <li key={index} className={current_page == item ? styles.current_index : null} onClick={() => setNextIndex(item)}>{item}</li>
                                 )
                             }
                             else{
                                 
                         return(
-                           <li onClick={() => setCurrentIndex(item)} className={current_page == item ? styles.current_index : null}>{item}</li>
+                           <li key={index} onClick={() => setCurrentIndex(item)} className={current_page == item ? styles.current_index : null}>{item}</li>
                        )
                         }
                         }
@@ -320,13 +320,13 @@ export default function Lista(props){
                 
                 <ul>
                     <p>Name: {personaggio_corrente.name}</p>
-                    <li>Status: {personaggio_corrente.status}</li>
-                    <li>Gender: {personaggio_corrente.gender}</li>
-                    <li>Species: {personaggio_corrente.species}</li>
-                    <li>Origin: {personaggio_corrente.origin.name}</li>
+                    <li key="Status">Status: {personaggio_corrente.status}</li>
+                    <li key="Gender">Gender: {personaggio_corrente.gender}</li>
+                    <li key="Species">Species: {personaggio_corrente.species}</li>
+                    <li key="Origin">Origin: {personaggio_corrente.origin.name}</li>
                     <p>Compare in:</p>
                     { nomi_episodi.map(function(item, index){
-                        return(<li>{item}</li>)
+                        return(<li key={index}>{item}</li>)
                     })}
                 </ul>
             </div>
